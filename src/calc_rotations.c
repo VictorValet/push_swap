@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:16:41 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 22:02:58 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:16:59 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /* In an organized stack, returns the number of rotations needed to insert
 number 'nbr' at the top of the given stack. (COULD BE BETTER...)*/
-int	calc_rotations(int nbr, t_stack *stack)
+size_t	calc_rotations(int nbr, t_stack *stack)
 {
-	int	rotations;
+	size_t	rotations;
 
 	if (((nbr < ft_lstmin(stack) || nbr > ft_lstmax(stack)) 
 				&& stack->n[0] == ft_lstmin(stack))

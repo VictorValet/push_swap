@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:54:36 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 22:03:28 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:16:44 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 smaller than itself. */
 static int	final_pos(int n, t_stack *stack)
 {
-	int pos;
-	int i;
+	size_t	pos;
+	size_t	i;
 
 	pos = 0;
 	i = 0;
@@ -32,7 +32,7 @@ static int	final_pos(int n, t_stack *stack)
 
 /* Fills the stack 'b' with the numbers passed as arguments, copies their final
 positions into stack 'a' and clears stack 'b'. */
-void	fill_stack(int argc, char **argv, t_stack *a, t_stack *b)
+void	fill_stack(size_t argc, char **argv, t_stack *a, t_stack *b)
 {
 	a->n = ft_calloc(argc, sizeof(int));
 	if (a->n == NULL)

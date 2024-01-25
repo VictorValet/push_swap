@@ -6,15 +6,15 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:11:44 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 22:03:43 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:12:41 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	lowest(int a, int b, int c, int d)
+static size_t lowest(size_t a, size_t b, size_t c, size_t d)
 {
-	int	low;
+	size_t	low;
 
 	low = a;
 	if (b < low)
@@ -26,7 +26,7 @@ int	lowest(int a, int b, int c, int d)
 	return (low);
 }
 
-int	total_mvmts(t_mvmts el)
+static size_t total_mvmts(t_mvmts el)
 {
 	int	ra_rb;
 	int	rra_rrb;
@@ -50,8 +50,8 @@ t_mvmts	find_best_candidate(t_stack *dest, t_stack *src)
 {
 	t_mvmts	best;
 	t_mvmts	candidate;
-	int		mvmts;
-	int		i;
+	size_t	mvmts;
+	size_t	i;
 
 	candidate = calc_mvmts(dest, src, 0);
 	best = candidate;

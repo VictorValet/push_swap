@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:23:54 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 22:02:50 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:18:46 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_mvmts
 
 /* Stack Management */
 void	list_validity(int argc, char **argv);
-void	fill_stack(int argc, char **argv, t_stack *a, t_stack *b);
+void	fill_stack(size_t argc, char **argv, t_stack *a, t_stack *b);
 void	error(int *temp, t_stack *a, t_stack *b);
 
 /* Sorting Functions */
@@ -53,7 +53,7 @@ void	ft_rrotate(t_stack *a, t_stack *b, char select);
 void	ft_swap(t_stack *a, t_stack *b, char select);
 
 /* Advanced Operations*/
-int		calc_rotations(int nbr, t_stack *stack);
+size_t	calc_rotations(int nbr, t_stack *stack);
 t_mvmts	calc_mvmts(t_stack *a, t_stack *b, int pos);
 t_mvmts	find_best_candidate(t_stack *dest, t_stack *src);
 void	do_rotations(t_stack *a, t_stack *b, t_mvmts el);

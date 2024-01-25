@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:08:50 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 21:40:13 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:17:46 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ rra needed for it to be push correctly in stack 'dest'. */
 t_mvmts	calc_mvmts(t_stack *dest, t_stack *src, int pos)
 {
 	t_mvmts temp;
-	
+
 	temp.ra = calc_rotations(src->n[pos], dest);
 	temp.rra = dest->size - temp.ra;
 	temp.rb = pos;
 	temp.rrb = src->size - pos;
-	// ft_printf("%i %i %i %i\n", temp.ra, temp.rra, temp.rb, temp.rrb);
+	ft_printf("Movements: %i %i %i %i\n", temp.ra, temp.rra, temp.rb, temp.rrb);
 	return (temp);
 }

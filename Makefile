@@ -22,7 +22,7 @@ SRCS_FILES	=	calc_mvmts.c \
 
 SRCS		=	${addprefix src/, ${SRCS_FILES}}
 
-CC			= 	cc -I${INCLUDE} #-Wall -Wextra -Werror
+CC			= 	cc -Wall -Wextra -Werror -I${INCLUDE}
 
 all:		${NAME}
 

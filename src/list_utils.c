@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 10:48:48 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 22:04:02 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:09:21 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_lstmax(t_stack *stack)
 {
-	int	max;
-	int i;
+	int		max;
+	size_t	i;
 
 	max = stack->n[0];
 	i = 0;
@@ -30,8 +30,8 @@ int	ft_lstmax(t_stack *stack)
 
 int	ft_lstmin(t_stack *stack)
 {
-	int	min;
-	int i;
+	int		min;
+	size_t	i;
 
 	min = stack->n[0];
 	i = 0;
@@ -53,7 +53,7 @@ int	ft_sorted(t_stack *stack, int way)
 		return (TRUE);
 	while (i < stack->size - 1)
 	{
-		if (stack->n[i] > stack->n[i + 1])
+		if (stack->n[i] * way > stack->n[i + 1] * way)
 			return (FALSE);
 		i++;
 	}
