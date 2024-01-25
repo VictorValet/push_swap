@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:12:09 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 14:07:42 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 14:53:11 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_integer(char *str)
 	while (str[index] >= '0' && str[index] <= '9')
 	{
 		n = (n * 10) + (str[index] - '0');
-		if ((sign > 0 && n > INT_MAX) || (sign < 0 && n > -(long long int)INT_MIN))
+		if ((sign > 0 && n > INT_MAX) || (sign < 0 && n > -(long long)INT_MIN))
 			return (0);
 		index++;
 	}
@@ -45,7 +45,7 @@ int	is_unique(int arg, char **argv)
 {
 	int	comp;
 
-	comp = 0;
+	comp = 1;
 	while (comp < arg)
 	{
 		if (ft_atoi(argv[comp]) == ft_atoi(argv[arg]))

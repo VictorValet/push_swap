@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
+/*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:32:00 by vvalet            #+#    #+#             */
-/*   Updated: 2023/05/12 10:01:12 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 14:54:07 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	argc--;
 	list_validity(argc, argv);
 	stack_a = fill_stack(argc, argv);
-	stack_b = 0;
+	stack_b = NULL;
 	if (argc <= 5)
 		sort_small(&stack_a, &stack_b);
 	else
