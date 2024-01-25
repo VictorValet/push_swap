@@ -4,11 +4,10 @@ INCLUDE		=	include/
 
 LIBFT		=	libft/libft.a
 
-SRCS_FILES	=	calc_final_pos.c \
+SRCS_FILES	=	calc_mvmts.c \
 				calc_rotations.c \
 				do_rotations.c \
 				error.c \
-				fill_data.c \
 				fill_stack.c \
 				find_best_candidate.c \
 				ft_push.c \
@@ -23,7 +22,7 @@ SRCS_FILES	=	calc_final_pos.c \
 
 SRCS		=	${addprefix src/, ${SRCS_FILES}}
 
-CC			= 	cc -Wall -Wextra -Werror -I${INCLUDE}
+CC			= 	cc -I${INCLUDE} #-Wall -Wextra -Werror
 
 all:		${NAME}
 

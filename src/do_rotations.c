@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:12:19 by vvalet            #+#    #+#             */
-/*   Updated: 2023/05/11 14:54:35 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 19:36:37 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	find_comb(int a, int b, int c, int d)
 	return (comb);
 }
 
-void	update_data(t_list *el)
+void	update_data(t_mvmts *el)
 {
 	int	ra_rb;
 	int	rra_rrb;
@@ -64,23 +64,23 @@ void	update_data(t_list *el)
 		el->rb = 0;
 }
 
-void	do_rotations(t_list **stack_a, t_list **stack_b, t_list el)
+void	do_rotations(t_stack *a, t_stack *b, t_mvmts el)
 {
 	update_data(&el);
 	while (el.ra > 0 || el.rb > 0 || el.rra > 0 || el.rrb > 0)
 	{
 		if (el.ra > 0 && el.rb > 0)
-			ft_rotate(stack_a, stack_b, 'r');
+			ft_rotate(a, b, 'r');
 		if (el.rra > 0 && el.rrb > 0)
-			ft_rrotate(stack_a, stack_b, 'r');
+			ft_rrotate(a, b, 'r');
 		if (el.ra > 0 && el.rb <= 0)
-			ft_rotate(stack_a, stack_b, 'a');
+			ft_rotate(a, b, 'a');
 		if (el.rb > 0 && el.ra <= 0)
-			ft_rotate(stack_a, stack_b, 'b');
+			ft_rotate(a, b, 'b');
 		if (el.rra > 0 && el.rrb <= 0)
-			ft_rrotate(stack_a, stack_b, 'a');
+			ft_rrotate(a, b, 'a');
 		if (el.rrb > 0 && el.rra <= 0)
-			ft_rrotate(stack_a, stack_b, 'b');
+			ft_rrotate(a, b, 'b');
 		el.ra--;
 		el.rb--;
 		el.rra--;

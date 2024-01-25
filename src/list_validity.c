@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_validity.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
+/*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:12:09 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 14:53:11 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 17:27:09 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	list_validity(int argc, char **argv)
 	while (argc > 0)
 	{
 		if (!is_integer(argv[argc]))
-			error(NULL, NULL);
+			error(NULL, NULL, NULL);
 		if (!is_unique(argc, argv))
-			error(NULL, NULL);
+			error(NULL, NULL, NULL);
 		argc--;
 	}
 }

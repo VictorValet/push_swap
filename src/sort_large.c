@@ -6,37 +6,35 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:09:17 by vvalet            #+#    #+#             */
-/*   Updated: 2023/05/11 12:34:42 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 21:54:22 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_large(t_list **stack_a, t_list **stack_b)
+void	sort_large(t_stack *a, t_stack *b)
 {
-	t_list		*best;
-	int			size;
+	t_mvmts	mvmts;
+	size_t	size;
 
-	size = ft_lstsize(*stack_a);
-	calc_final_pos(stack_a);
-	while (!ft_organized(*stack_a, ASC))
+	size = a->size;
+	while (ft_organized(a, ASC) == FALSE)
 	{
-		ft_push(stack_a, stack_b, 'b');
-		if (*stack_b && (**stack_b).f_pos > size / 2)
-			ft_rotate(stack_a, stack_b, 'b');
+		ft_push(a, b, 'b');
+		if (b->size > 0 && (size_t)b->n[0] > size / 2)
+			ft_rotate(a, b, 'b');
 	}
-	while (*stack_b)
+	while (b->size > 0)
 	{
-		fill_data(stack_a, stack_b);
-		best = find_best_candidate(*stack_b);
-		do_rotations(stack_a, stack_b, *best);
-		ft_push(stack_a, stack_b, 'a');
+		mvmts = find_best_candidate(a, b);
+		do_rotations(a, b, mvmts);
+		ft_push(a, b, 'a');
 	}
-	while (!ft_sorted(*stack_a, ASC))
+	while (ft_sorted(a, ASC) == FALSE)
 	{
-		if ((**stack_a).f_pos > size / 2)
-			ft_rotate(stack_a, stack_b, 'a');
+		if ((size_t)a->n[0] > size / 2)
+			ft_rotate(a, b, 'a');
 		else
-			ft_rrotate(stack_a, stack_b, 'a');
+			ft_rrotate(a, b, 'a');
 	}
 }

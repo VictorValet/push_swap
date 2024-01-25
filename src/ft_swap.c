@@ -6,29 +6,26 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:34:31 by vvalet            #+#    #+#             */
-/*   Updated: 2023/05/05 13:44:17 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 21:58:28 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **stack_a, t_list **stack_b, char swap)
+static void swap(t_stack *stack)
 {
-	t_list	*temp;
+	int	temp;
+	
+	temp = stack->n[0];
+	stack->n[0] = stack->n[1];
+	stack->n[1] = temp;
+}
 
-	ft_printf("s%c\n", swap);
-	if ((swap == 'a' || swap == 'r') && ft_lstsize(*stack_a) > 1)
-	{
-		temp = *stack_a;
-		*stack_a = (*stack_a)->next;
-		temp->next = (*stack_a)->next;
-		(*stack_a)->next = temp;
-	}
-	if ((swap == 'b' || swap == 'r') && ft_lstsize(*stack_b) > 1)
-	{
-		temp = *stack_b;
-		*stack_b = (*stack_b)->next;
-		temp->next = (*stack_b)->next;
-		(*stack_b)->next = temp;
-	}
+void	ft_swap(t_stack *a, t_stack *b, char select)
+{
+	ft_printf("s%c\n", select);
+	if ((select == 'a' || select == 'r') && a->size > 1)
+		swap(a);
+	if ((select == 'b' || select == 'r') && b->size > 1)
+		swap(b);
 }

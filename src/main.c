@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
+/*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:32:00 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 15:05:47 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:05:09 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,60 @@
 
 int	main(int argc, char **argv)
 {
-	// t_list	*stack_a;
-	// t_list	*stack_b;
-	// int		*stack_a;
-	// int		*stack_b;
+	t_stack	a;
+	t_stack b;
 
 	if (argc == 1)
 		return (0);
 	argc--;
 	list_validity(argc, argv);
+	fill_stack(argc, argv, &a, &b);
 
-	int	*stack;
-
-	stack = ft_calloc(argc, sizeof(int));//protec
-	while (argc > 0)
+	int i;
+	// ft_push(&a, &b, 'b');
+	// ft_rrotate(&a, &b, 'a');
+	// ft_rotate(&a, &b, 'a');
+	// ft_swap(&a, &b, 'a');
+	// i = 0;
+	// ft_printf("Stack a: ");
+	// while (i < a.size)
+	// {
+	// 	ft_printf("%i ", a.n[i]);
+	// 	i++;
+	// }
+	// ft_printf("\n");
+	// i = 0;
+	// ft_printf("Stack b: ");
+	// while (i < b.size)
+	// {
+	// 	ft_printf("%i ", b.n[i]);
+	// 	i++;
+	// }
+	// ft_printf("\n");
+	
+	if (argc <= 5)
+		sort_small(&a, &b);
+	else
+		sort_large(&a, &b);
+	
+	i = 0;
+	ft_printf("Stack a: ");
+	while (i < a.size)
 	{
-		stack[argc - 1] = ft_atoi(argv[argc]);
-		argc--;
+		ft_printf("%i ", a.n[i]);
+		i++;
 	}
+	ft_printf("\n");
+	// i = 0;
+	// ft_printf("Stack b: ");
+	// while (i < b.size)
+	// {
+	// 	ft_printf("%i ", b.n[i]);
+	// 	i++;
+	// }
+	// ft_printf("\n");
 
-	// stack_a = fill_stack(argc, argv);
-	// stack_b = NULL;
-	// if (argc <= 5)
-	// 	sort_small(&stack_a, &stack_b);
-	// else
-	// 	sort_large(&stack_a, &stack_b);
-	// ft_lstclear(&stack_a, del_content);
-	// return (0);
+	free(a.n);
+	free(b.n);
+	return (0);
 }

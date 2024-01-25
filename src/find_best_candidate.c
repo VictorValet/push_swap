@@ -6,7 +6,7 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:11:44 by vvalet            #+#    #+#             */
-/*   Updated: 2023/05/11 13:59:21 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 22:03:43 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	lowest(int a, int b, int c, int d)
 	return (low);
 }
 
-int	calc_mvmts(t_list el)
+int	total_mvmts(t_mvmts el)
 {
 	int	ra_rb;
 	int	rra_rrb;
@@ -46,23 +46,26 @@ int	calc_mvmts(t_list el)
 	return (lowest(ra_rb, rra_rrb, ra_rrb, rra_rb));
 }
 
-t_list	*find_best_candidate(t_list *stack)
+t_mvmts	find_best_candidate(t_stack *dest, t_stack *src)
 {
-	t_list	*best;
-	t_list	*candidate;
+	t_mvmts	best;
+	t_mvmts	candidate;
 	int		mvmts;
+	int		i;
 
-	best = stack;
-	candidate = stack;
-	mvmts = calc_mvmts(*stack);
-	while (candidate)
+	candidate = calc_mvmts(dest, src, 0);
+	best = candidate;
+	mvmts = total_mvmts(candidate);
+	i = 0;
+	while (i < src->size)
 	{
-		if (calc_mvmts(*candidate) < mvmts)
+		candidate = calc_mvmts(dest, src, i);
+		if (total_mvmts(candidate) < mvmts)
 		{
-			mvmts = calc_mvmts(*candidate);
+			mvmts = total_mvmts(candidate);
 			best = candidate;
 		}
-		candidate = candidate->next;
+		i++;
 	}
 	return (best);
 }

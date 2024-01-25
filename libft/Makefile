@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+         #
+#    By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/02 18:36:20 by aminjauw          #+#    #+#              #
-#    Updated: 2024/01/25 13:49:30 by vvalet           ###   ########.fr        #
+#    Updated: 2024/01/25 15:50:06 by vvalet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,6 @@ SRCS		=	ft_atoi.c \
 				ft_printf/ft_putui_hex_fd.c \
 				ft_fprintf/ft_convertfd.c \
 				ft_fprintf/ft_fprintf.c \
-				get_next_line/get_next_line_utils.c \
 				get_next_line/get_next_line.c
 
 #-----------------------------------OBJECTS------------------------------------

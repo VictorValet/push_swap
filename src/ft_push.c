@@ -6,33 +6,39 @@
 /*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 09:31:13 by vvalet            #+#    #+#             */
-/*   Updated: 2023/05/04 13:25:43 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/25 21:58:44 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_list **stack_a, t_list **stack_b, char dir)
+static void	push(t_stack *src, t_stack *dest)
 {
-	t_list	*temp;
+	size_t i;
 
-	ft_printf("p%c\n", dir);
-	if (dir == 'b')
+	i = dest->size;
+	while (i > 0)
 	{
-		if (!stack_a)
-			return ;
-		temp = *stack_a;
-		*stack_a = (*stack_a)->next;
-		temp->next = *stack_b;
-		*stack_b = temp;
+		dest->n[i] = dest->n[i - 1];
+		i--;
 	}
-	if (dir == 'a')
+	dest->n[0] = src->n[0];
+	dest->size++;
+	i = 0;
+	while (i < src->size - 1)
 	{
-		if (!stack_b)
-			return ;
-		temp = *stack_b;
-		*stack_b = (*stack_b)->next;
-		temp->next = *stack_a;
-		*stack_a = temp;
+		src->n[i] = src->n[i + 1];
+		i++;
 	}
+	src->n[i] = 0;
+	src->size--;
+}
+
+void	ft_push(t_stack *a, t_stack *b, char select)
+{
+	ft_printf("p%c\n", select);
+	if (select == 'b')
+		push(a, b);
+	if (select == 'a')
+		push(b, a);
 }
