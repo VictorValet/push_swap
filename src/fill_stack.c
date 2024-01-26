@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
+/*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:54:36 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 22:16:44 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/26 09:14:48 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ void	fill_stack(size_t argc, char **argv, t_stack *a, t_stack *b)
 		a->n[argc] = final_pos(b->n[argc], b);
 		argc++;
 	}
-	// ft_bzero(b, b->size *sizeof(int));
 	b->size = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
+/*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:08:46 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 21:58:18 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/26 09:15:07 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void	rotate(t_stack *stack)
 {
 	int		temp;
-	size_t  i;
-	
+	size_t	i;
+
 	temp = stack->n[0];
 	i = 0;
 	while (i < stack->size - 1)

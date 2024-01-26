@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+        */
+/*   By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 09:31:13 by vvalet            #+#    #+#             */
-/*   Updated: 2024/01/25 21:58:44 by vvalet           ###   ########.fr       */
+/*   Updated: 2024/01/26 09:15:01 by vvalet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push(t_stack *src, t_stack *dest)
 {
-	size_t i;
+	size_t	i;
 
 	i = dest->size;
 	while (i > 0)
