@@ -1,10 +1,24 @@
 NAME		=	push_swap
 
-INCLUDE		=	include/
-
 LIBFT		=	libft/libft.a
 
-SRCS_FILES	=	calc_mvmts.c \
+#------------------------------------PATH--------------------------------------
+
+SRC_PATH	=	src/
+
+OBJ_PATH	=	objs/
+
+INCLUDE		=	include/
+
+#---------------------------------COMPILATION----------------------------------
+
+CC			= 	cc
+
+FLAGS		=	-Wall -Wextra -Werror
+
+#---------------------------------SOURCE FILES---------------------------------
+
+SRC_FILES	=	calc_mvmts.c \
 				calc_rotations.c \
 				do_rotations.c \
 				error.c \
@@ -20,24 +34,42 @@ SRCS_FILES	=	calc_mvmts.c \
 				sort_large.c \
 				sort_small.c
 
-SRCS		=	${addprefix src/, ${SRCS_FILES}}
+SRCS		=	$(addprefix $(SRC_PATH), $(SRC_FILES))
 
-CC			= 	cc -Wall -Wextra -Werror -I${INCLUDE}
+#-----------------------------------OBJECTS------------------------------------
+
+OBJ_FILES	=	$(SRC_FILES:.c=.o)
+
+OBJS		=	$(addprefix $(OBJ_PATH), $(OBJ_FILES)) 
+
+#------------------------------------RULES-------------------------------------
 
 all:		${NAME}
 
-${NAME}:	${SRCS} include/push_swap.h
-		make -C libft/
-		${CC} -o ${NAME} ${SRCS} ${LIBFT}
+$(OBJ_PATH):
+	@mkdir -p $(OBJ_PATH)
 
-clean:	
-		rm -f ${OBJS}
-		make clean -C libft/	
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@$(CC) $(FLAGS) -I$(INCLUDE) -c $< -o $@
 
-fclean:		clean
-		rm -f ${NAME}
-		rm -f ${LIBFT}
+$(NAME): $(OBJ_PATH) $(OBJS)
+		@echo "Creating libft..."
+		@make -C libft/
+		@echo "Creating push_swap..."
+		@$(CC) -I$(INCLUDE) -o $(NAME) $(OBJS) $(LIBFT)
 
-re:			fclean all
+clean:
+		@echo "Removing libft objects..."
+		@make clean -C libft/	
+		@echo "Removing push_swap objects..."
+		@rm -f ${OBJS}
+
+fclean: clean
+		@echo "Removing libft..."
+		@rm -f ${LIBFT}
+		@echo "Removing push_swap..."
+		@rm -f ${NAME}
+
+re: fclean all
 
 .PHONY: all clean fclean re

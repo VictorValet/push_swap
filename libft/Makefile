@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vvalet <vvalet@student.s19.be>             +#+  +:+       +#+         #
+#    By: vvalet <vvalet@student.s19.be >            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/02 18:36:20 by aminjauw          #+#    #+#              #
-#    Updated: 2024/01/25 15:50:06 by vvalet           ###   ########.fr        #
+#    Updated: 2024/02/13 16:19:55 by vvalet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,25 +107,23 @@ OBJS		=	${addprefix ${OBJS_PATH}, ${OBJS_FILES}}
 all: ${NAME}
 
 ${OBJS_PATH}:
-	mkdir -p ${OBJS_PATH}
-	mkdir -p ${OBJS_PATH}ft_printf/
-	mkdir -p ${OBJS_PATH}ft_fprintf/
-	mkdir -p ${OBJS_PATH}get_next_line/
+	@mkdir -p ${OBJS_PATH}
+	@mkdir -p ${OBJS_PATH}ft_printf/
+	@mkdir -p ${OBJS_PATH}ft_fprintf/
+	@mkdir -p ${OBJS_PATH}get_next_line/
 
 ${OBJS_PATH}%.o: %.c
-	${CC} ${FLAGS} -c $< -o $@
+	@${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${OBJS_PATH} ${OBJS}
-	@echo "ar rcs ${NAME} OBJS"
 	@ar rcs ${NAME} ${OBJS}
 
 clean:
-	@echo "rm -f OBJS"
 	@rm -f ${OBJS}
-	rm -Rf ${OBJS_PATH}
+	@rm -Rf ${OBJS_PATH}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all
 
