@@ -63,6 +63,7 @@ clean:
 	@make clean -C libft/	
 	@echo "Removing $(NAME) objects..."
 	@rm -f ${OBJS}
+	@rm -Rf ${OBJ_PATH}
 
 fclean: clean
 	@echo "Removing libft..."
