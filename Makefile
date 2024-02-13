@@ -55,19 +55,19 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 $(NAME): $(OBJ_PATH) $(OBJS)
 	@echo "Creating libft..."
 	@make -C libft/
-	@echo "Creating push_swap..."
+	@echo "Creating $(NAME)..."
 	@$(CC) -I$(INCLUDE) -o $(NAME) $(OBJS) $(LIBFT)
 
 clean:
 	@echo "Removing libft objects..."
 	@make clean -C libft/	
-	@echo "Removing push_swap objects..."
+	@echo "Removing $(NAME) objects..."
 	@rm -f ${OBJS}
 
 fclean: clean
 	@echo "Removing libft..."
 	@rm -f ${LIBFT}
-	@echo "Removing push_swap..."
+	@echo "Removing $(NAME)..."
 	@rm -f ${NAME}
 
 re: fclean all
